@@ -28,6 +28,7 @@ def main():
             d = input('Desea crear una receta ahora?(Y/N): ').upper()
             if (d == 'Y'):
               desicionSubMenu = 2
+              return
             elif (d == 'N'):
               desicionSubMenu = None
             else:
@@ -68,13 +69,13 @@ def main():
               desicionVer = int(input('Seleccione el ingrediente deseado: '))
               recetaSeleccionada.agregarIngrediente(ingredientes[desicionVer - 1])
               d = input('Desea seguir agregando ingredientes?(Y/N): ').upper()
-            if (d == 'Y'):
-              pass
-            elif (d == 'N'):
-              masIngredientes = False
-            else:
-              print('OK')
-            input('Presione enter para continuar')
+              if (d == 'Y'):
+                pass
+              elif (d == 'N'):
+                masIngredientes = False
+              else:
+                print('OK')
+              input('Presione enter para continuar')
         elif desicionSubMenu == 5:
           desicionSubMenu = None
           desicionMenu = None
@@ -109,7 +110,7 @@ def main():
           crear('ingrediente', ingredientes)
           desicionSubMenu = None
         elif desicionSubMenu == 3:
-          ver(recetas)
+          ver(ingredientes)
           d = int(input('Seleccione el ingrediente deseado: '))
           ingredientes.pop(d - 1)
           print('Ingrediente eliminado\n')
