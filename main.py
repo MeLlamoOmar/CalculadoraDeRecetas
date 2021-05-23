@@ -6,7 +6,7 @@ import os
 
 def main():
   recetas = []
-  ingredientes = [Ingrediente('Uva', 'Unidad', 0, 50)]
+  ingredientes = []
 
   loop = True
   while(loop):
@@ -19,6 +19,8 @@ def main():
     desicionMenu = int(input('Seleccione la opcion deseada: '))
     while(desicionMenu != None):
       os.system('cls')
+      
+      #Usuario selecciono Ver Recetas
       if (desicionMenu == 1):
         menuReceta()
         desicionSubMenu = int(input('Seleccione la opcion deseada: '))
@@ -28,6 +30,7 @@ def main():
             d = input('Desea crear una receta ahora?(Y/N): ').upper()
             if (d == 'Y'):
               desicionSubMenu = 2
+              return
             elif (d == 'N'):
               desicionSubMenu = None
             else:
@@ -68,13 +71,13 @@ def main():
               desicionVer = int(input('Seleccione el ingrediente deseado: '))
               recetaSeleccionada.agregarIngrediente(ingredientes[desicionVer - 1])
               d = input('Desea seguir agregando ingredientes?(Y/N): ').upper()
-            if (d == 'Y'):
-              pass
-            elif (d == 'N'):
-              masIngredientes = False
-            else:
-              print('OK')
-            input('Presione enter para continuar')
+              if (d == 'Y'):
+                pass
+              elif (d == 'N'):
+                masIngredientes = False
+              else:
+                print('OK')
+              input('Presione enter para continuar')
         elif desicionSubMenu == 5:
           desicionSubMenu = None
           desicionMenu = None
@@ -85,6 +88,8 @@ def main():
 
           Presione enter para continuar
           ''')
+      
+      #Usuario selecciono Ver Ingredientes
       elif (desicionMenu == 2):
         menuIngrediente()
         desicionSubMenu = int(input('Seleccione la opcion deseada: '))
@@ -100,7 +105,7 @@ def main():
               print('OK')
           else:
             ver(ingredientes)
-            desicionVer = int(input('Seleccione la receta deseada: '))
+            desicionVer = int(input('Seleccione el ingrediente deseado: '))
             ingredientes[desicionVer - 1].mostrarIngrediente()
             input('Presione enter para continuar')
             desicionSubMenu = None
@@ -109,7 +114,7 @@ def main():
           crear('ingrediente', ingredientes)
           desicionSubMenu = None
         elif desicionSubMenu == 3:
-          ver(recetas)
+          ver(ingredientes)
           d = int(input('Seleccione el ingrediente deseado: '))
           ingredientes.pop(d - 1)
           print('Ingrediente eliminado\n')
@@ -118,6 +123,8 @@ def main():
         elif desicionSubMenu == 4:
           desicionSubMenu = None
           desicionMenu = None
+      
+      #Usuario salio de la app
       elif (desicionMenu == 3):
         desicionMenu = None
         loop = False

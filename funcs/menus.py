@@ -15,7 +15,7 @@ def menuReceta():
   2) Crear Receta
   3) Eliminar Receta
   4) Agregar Ingredientes
-  4) Volver
+  5) Volver
   ''')
 
 def menuIngrediente():

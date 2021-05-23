@@ -17,6 +17,7 @@ def crear(opcion, lista):
     ''')
     input('Presione enter para continuar')
   elif opcion == 'ingrediente':
+    medidas = ['gramos', 'unidad', 'libras', 'onzas', 'litros', 'mililitros']
     clearConsole('cls')
     nombreIngrediente = input('Ingrese el nombre del ingrediente: ')
     clearConsole('cls')
@@ -26,6 +27,7 @@ def crear(opcion, lista):
     4) Onzas   5) Litros  6) Mililitros
     ''')
     nombreMedida = int(input('Introduzca el numero de la opcion que desea: '))
+    nombreMedida = medidas[nombreMedida - 1]
     clearConsole('cls')
     pesoIngrediente = int(input('Introduzca el peso del articulo(Si la medida es unidad introduzca la cantidad de articulos): '))
     clearConsole('cls')
