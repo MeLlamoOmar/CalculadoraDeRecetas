@@ -34,6 +34,7 @@ class Receta:
       print('Por Favor ingrese una opcion valida')
       self.mostrarReceta()
   def agregarIngrediente(self, ingrediente):
+    os.system('cls')
     pesoReceta = int(input('Ingrese el peso utilizado en la receta (Si es por unidad ingrese la cantidad de unidades utilizadas): '))
     self.__costoReceta += self.__calcularValor(ingrediente, pesoReceta)
     self.__ingredientesReceta.append(ingrediente)

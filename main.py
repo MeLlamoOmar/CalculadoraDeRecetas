@@ -6,7 +6,7 @@ import os
 
 def main():
   recetas = []
-  ingredientes = [Ingrediente('Uva', 'Unidad', 0, 50)]
+  ingredientes = []
 
   loop = True
   while(loop):
