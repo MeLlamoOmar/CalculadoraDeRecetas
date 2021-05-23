@@ -19,6 +19,8 @@ def main():
     desicionMenu = int(input('Seleccione la opcion deseada: '))
     while(desicionMenu != None):
       os.system('cls')
+      
+      #Usuario selecciono Ver Recetas
       if (desicionMenu == 1):
         menuReceta()
         desicionSubMenu = int(input('Seleccione la opcion deseada: '))
@@ -86,6 +88,8 @@ def main():
 
           Presione enter para continuar
           ''')
+      
+      #Usuario selecciono Ver Ingredientes
       elif (desicionMenu == 2):
         menuIngrediente()
         desicionSubMenu = int(input('Seleccione la opcion deseada: '))
@@ -101,7 +105,7 @@ def main():
               print('OK')
           else:
             ver(ingredientes)
-            desicionVer = int(input('Seleccione la receta deseada: '))
+            desicionVer = int(input('Seleccione el ingrediente deseado: '))
             ingredientes[desicionVer - 1].mostrarIngrediente()
             input('Presione enter para continuar')
             desicionSubMenu = None
@@ -119,6 +123,8 @@ def main():
         elif desicionSubMenu == 4:
           desicionSubMenu = None
           desicionMenu = None
+      
+      #Usuario salio de la app
       elif (desicionMenu == 3):
         desicionMenu = None
         loop = False
