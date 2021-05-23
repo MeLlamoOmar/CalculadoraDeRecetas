@@ -6,8 +6,8 @@ from Ingrediente import Ingrediente
 from os import system as clearConsole
 
 def ver(lista):
-  for i in range(len(lista)):
-    print(f'{i + 1}) {lista[i].nombre} \n')
+  for pos, i in enumerate(lista, start=1):
+    print(f'{pos}) {i.nombre} \n')
 def crear(opcion, lista):
   if opcion == 'receta':
     nombreReceta = input('Ingrese el nombre de la receta: ')
