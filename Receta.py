@@ -1,4 +1,4 @@
-import os
+from funcs.utils import clearConsole
 
 class Receta:
   def __init__(self, nombre: str):
@@ -16,7 +16,7 @@ class Receta:
     return self.__nombreReceta
 
   def mostrarReceta(self):
-    os.system('cls')
+    clearConsole()
     print(f'''
       Nombre de la Receta: {self.__nombreReceta}
       Numero de Ingredientes: {len(self.__ingredientesReceta)}
@@ -34,7 +34,7 @@ class Receta:
       print('Por Favor ingrese una opcion valida')
       self.mostrarReceta()
   def agregarIngrediente(self, ingrediente):
-    os.system('cls')
+    clearConsole()
     pesoReceta = int(input('Ingrese el peso utilizado en la receta (Si es por unidad ingrese la cantidad de unidades utilizadas): '))
     self.__costoReceta += self.__calcularValor(ingrediente, pesoReceta)
     self.__ingredientesReceta.append(ingrediente)

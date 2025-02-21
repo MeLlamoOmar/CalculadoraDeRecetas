@@ -3,11 +3,19 @@
 
 from Receta import Receta
 from Ingrediente import Ingrediente
-from os import system as clearConsole
+from os import system
+from sys import platform
+
+def clearConsole():
+  if platform == 'win32':
+    system('cls')
+  else:
+    system('clear')
 
 def ver(lista):
-  for pos, i in enumerate(lista, start=1):
-    print(f'{pos}) {i.nombre} \n')
+  for pos, el in enumerate(lista, start=1):
+    print(f'{pos}) {el.nombre} \n')
+    
 def crear(opcion, lista):
   if opcion == 'receta':
     nombreReceta = input('Ingrese el nombre de la receta: ')
@@ -18,9 +26,9 @@ def crear(opcion, lista):
     input('Presione enter para continuar')
   elif opcion == 'ingrediente':
     medidas = ['gramos', 'unidad', 'libras', 'onzas', 'litros', 'mililitros']
-    clearConsole('cls')
+    clearConsole()
     nombreIngrediente = input('Ingrese el nombre del ingrediente: ')
-    clearConsole('cls')
+    clearConsole()
     print('''
     ----------Medidas------------------
     1) Gramos  2) Unidad  3) Libras
@@ -28,8 +36,8 @@ def crear(opcion, lista):
     ''')
     nombreMedida = int(input('Introduzca el numero de la opcion que desea: '))
     nombreMedida = medidas[nombreMedida - 1]
-    clearConsole('cls')
+    clearConsole()
     pesoIngrediente = int(input('Introduzca el peso del articulo(Si la medida es unidad introduzca la cantidad de articulos): '))
-    clearConsole('cls')
+    clearConsole()
     precioIngrediente = int(input('Introduzca el valor del articulo: '))
     lista.append(Ingrediente(nombreIngrediente, nombreMedida, pesoIngrediente, precioIngrediente))

@@ -1,7 +1,7 @@
 from Receta import Receta
 from Ingrediente import Ingrediente
 from funcs.menus import *
-from funcs.utils import ver, crear
+from funcs.utils import ver, crear, clearConsole
 import os
 
 def main():
@@ -10,7 +10,7 @@ def main():
 
   loop = True
   while(loop):
-    os.system('cls')
+    clearConsole()
     desicionMenu = None
     desicionSubMenu = None
     desicionVer = None
@@ -18,7 +18,7 @@ def main():
     menuPrincipal()
     desicionMenu = int(input('Seleccione la opcion deseada: '))
     while(desicionMenu != None):
-      os.system('cls')
+      clearConsole()
       
       #Usuario selecciono Ver Recetas
       if (desicionMenu == 1):
@@ -41,7 +41,7 @@ def main():
             recetas[desicionVer - 1].mostrarReceta()
             input('Presione enter para continuar')
         elif desicionSubMenu == 2:
-          os.system('cls')
+          clearConsole()
           crear('receta', recetas)
           desicionSubMenu = None
         elif desicionSubMenu == 3:
@@ -110,7 +110,7 @@ def main():
             input('Presione enter para continuar')
             desicionSubMenu = None
         elif desicionSubMenu == 2:
-          os.system('cls')
+          clearConsole()
           crear('ingrediente', ingredientes)
           desicionSubMenu = None
         elif desicionSubMenu == 3:
